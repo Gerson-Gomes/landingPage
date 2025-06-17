@@ -1,0 +1,129 @@
+#root {
+  width: 80vw;
+  margin: 161px auto 0;
+  padding: 2rem;
+  text-align: center;
+  --whiteMain: #f1f1f1;
+  --blackMain: #1f2421;
+  --darkGreen: #216869;
+  --midGreen: #49a078;
+  --lightGreen: #9cc5a1;
+  --platWhite: #dce1de;
+  --initialPosition: -100px;
+}
+
+.fade-in-element {
+  opacity: 0;
+  transition: all 2s ease-in;
+
+  transform: translateY(-100px);
+}
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translate(0) ;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#ola{
+  font-size: 10em;
+  color: var(--lightGreen);
+  margin: 0.5rem;
+}
+
+.ola-secundario{
+  color: var(--darkGreen) !important;
+
+}
+
+.socials{
+  background-color: var(--darkGreen);
+  border-radius: 0.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+.image{
+  background-color: var(--lightGreen);
+  width: 20rem;
+  margin: 0 0 0 10em;
+  height: 33rem;
+}
+.personal-photo{
+  width: 11rem;
+  height: 15rem;
+  background-color: red;
+}
+.projects{
+  min-width: 1250px;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projects-container{
+  margin: 5% auto 0;
+  display: flex;
+  align-items: center;
+  height: 500px;
+  flex-direction: column;
+}
+.second-photo{
+  width: 20rem;
+  height: 8em;
+  background-color: blue;
+}
+.App{
+  display: flex;
+  justify-content: center;
+
+}
+.arrow-down{
+  width: 80px;
+  height: 80px;
+  background-color: orange;
+  font-size: 4em;
+}
+.projects-ul{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0;
+}
+.project-item{
+  list-style-type: none; /* removes the bullet */
+  margin: 0;             /* removes default margin */
+  padding: 0;
+  width: 360px;
+  height: 400px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+.project-item-image{
+  width: 100%;
+  background-color: blue;
+  height: 30%;
+}
+.project-item-content{
+  height: 70%;
+  width: 100%;
+  background: yellow;
+}
+.dark-mode{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue;
+  width: 90px;
+  height: 90px;
+  margin: 4%;
+}
+
+
+
