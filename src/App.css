@@ -1,15 +1,33 @@
-#root {
+:root {
   width: 80vw;
   margin: 161px auto 0;
   padding: 2rem;
   text-align: center;
-  --whiteMain: #f1f1f1;
+  --Main: #f1f1f1;
   --blackMain: #1f2421;
   --darkGreen: #216869;
   --midGreen: #49a078;
   --lightGreen: #9cc5a1;
-  --platWhite: #dce1de;
+  --phraseColor: #222222;
   --initialPosition: -100px;
+  --itemColor: #fdfdfd;
+  --itemBorderColor: #444444;
+
+}
+
+body.dark-mode {
+  --Main: #222222;
+  --itemColor: #444444;
+  --itemBorderColor: #dddddd;
+  --phraseColor: #dce1de;
+}
+
+
+
+body {
+  background-color: var(--Main);
+  transition: background-color 0.3s ease;
+
 }
 
 .fade-in-element {
@@ -18,120 +36,186 @@
 
   transform: translateY(-100px);
 }
+
 .fade-in-element.visible {
   opacity: 1;
-  transform: translate(0) ;
+  transform: translate(0);
 }
 
-.profile{
+.profile {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-#ola{
+#ola {
   font-size: 10em;
   color: var(--lightGreen);
   margin: 0.5rem;
 }
 
-.ola-secundario{
+.ola-secundario {
   color: var(--darkGreen) !important;
 
 }
 
-.socials{
+.profile-description {
+  color: var(--darkGreen);
+}
+
+.socials {
   background-color: var(--darkGreen);
   border-radius: 0.5rem;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
 }
-.image{
+
+.socials>a {
+  height: 50px;
+  width: 50px;
+}
+
+.image {
   background-color: var(--lightGreen);
   width: 20rem;
   margin: 0 0 0 10em;
   height: 33rem;
 }
-.personal-photo{
+
+.personal-photo {
   width: 11rem;
   height: 15rem;
   background-color: red;
 }
-.projects{
+
+.personal-photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects {
   min-width: 1250px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.projects-container{
+
+.projects-container {
   margin: 54px auto 0;
   display: flex;
   align-items: center;
   height: 500px;
   flex-direction: column;
 }
-.second-photo{
+
+.second-photo {
   width: 20rem;
   height: 8em;
-  background-color: blue;
+  background-color: var(--midGreen);
+  display: flex;
+  align-items: center;
 }
-.App{
+
+#nome {
+  color: black;
+  margin-left: 5%;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.App {
   display: flex;
   justify-content: center;
 
 }
-.arrow-down{
- width: 80px;
-    height: 80px;
-    color: black;
-    font-size: 4em;
-    border: solid #a1a1a1 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fbfbfb;
-}
-.projects-ul{
+
+.arrow-down {
+  width: 80px;
+  height: 80px;
+  color: var(--itemBorderColor);
+  font-size: 4em;
+  border: solid #a1a1a1 1px;
+  border-radius: 50px;
   display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  padding: 0;
+  justify-content: center;
+  align-items: center;
 }
-.project-item{
-  list-style-type: none; /* removes the bullet */
-  margin: 0;             /* removes default margin */
+
+.projects-ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
   padding: 0;
-  width: 360px;
-  height: max-content;
-  background: white;
+  width: 100%;
+  padding: 0px 0px 20px;
+}
+
+.project-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 10px;
+  max-width: 360px;
+  height: auto;
+  flex: 1 1 auto;
+  flex-basis: 0;
+  background-color: var(--Main) !important;
   display: flex;
   flex-direction: column;
+  border: solid var(--itemBorderColor) 2px;
+  border-radius: 22px;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, border 0.3s ease !important;
 }
-.project-item-image{
+
+.project-item-image {
   width: 100%;
-  background-color: blue;
+  background-size: cover;
   height: 120px;
 }
-.project-item-content{
+
+.project-item-content {
   height: 70%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.project-item-content > p{
-  color: black;
+
+.project-item-content>p {
+  color: var(--phraseColor);
   text-align: justify;
 }
-.dark-mode{
+
+.dark-mode-button {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: blue;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   margin: 4%;
+  border-radius: 36px;
+  border: solid var(--itemBorderColor) 1px;
 }
 
+.dark-mode-button>button {
+  width: 100%;
+  height: 100%;
+  border-radius: 45px;
+  background-color: inherit;
+}
 
+#react-image {
+  background-image: url("/src/assets/BurgerReact.png");
 
+}
+
+#forum-image {
+  background-image: url("/src/assets/forum.png");
+}
+
+#sunIcon path {
+  fill: white;
+}

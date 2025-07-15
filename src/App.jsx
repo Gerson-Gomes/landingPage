@@ -3,11 +3,31 @@ import github from "./assets/icons8-github-50.svg";
 import linkedin from "./assets/icons8-linkedin-50.svg";
 import instagram from "./assets/icons8-instagram-50.svg";
 import './App.css';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import SunIcon  from "./assets/sun-regular.svg?react";
+import MoonIcon from "./assets/moon-solid.svg?react";
+import photo from "./assets/foto.jpg"
 
 function App() {
     const projectItemRef = useRef(null);
     const isInView = useInView(projectItemRef, { once: true });
+    const [darkMode, setDarkMode] = useState(false)
+
+    useEffect(() => {
+        document.body.classList.toggle('dark-mode', darkMode);
+        localStorage.setItem('dark-mode', darkMode)
+    }, [darkMode]);
+
+    const toggleDarkMode = () => {
+        setDarkMode((prev) => !prev);
+    }
+
+    useEffect(() => {
+        const saved = localStorage.getItem('dark-mode') === true;
+        setDarkMode(saved)
+    }, []);
+
+    
 
     return (
         <>
@@ -33,11 +53,11 @@ function App() {
                         <p className="profile-description">Descrição</p>
                     </div>
                     <div className="socials">
-                        <img src={github} alt="Github Logo" />
-                        <img src={linkedin} alt="linkedin" />
-                        <img src={instagram} alt="Instagram" />
+                        <a href="https://github.com/Gerson-Gomes"><img src={github} alt="Github Logo" /></a>
+                        <a href="https://www.linkedin.com/in/gersoncgomes/"><img src={linkedin} alt="linkedin" /></a>
+                        <a href="https://www.instagram.com/gersoncastrogomes/"><img src={instagram} alt="Instagram" /></a>
                     </div>
-                    <motion.div className="dark-mode"></motion.div>
+                    <motion.div className="dark-mode-button"> <button onClick={toggleDarkMode}>{darkMode ? <SunIcon id="sunIcon"/> : <MoonIcon/>}</button></motion.div>
                 </section>
                 <section>
                     <div className="image">
@@ -46,13 +66,13 @@ function App() {
                             initial={{ opacity: 0, x: 100, scale: 1 }}
                             animate={{ opacity: 1, x: 25, scale: 1.6 }}
                             transition={{ duration: 1, delay: 0.6 }}
-                        ></motion.div>
+                        ><img className="personal-photo-image" src={photo}/></motion.div>
                         <motion.div
                             className="second-photo"
                             initial={{ opacity: 0, x: 100, y: 100, scale: 1 }}
                             animate={{ opacity: 1, x: 25, y: 126, scale: 1 }}
                             transition={{ duration: 1, delay: 0.4 }}
-                        ></motion.div>
+                        ><p id="nome">Gerson de Castro Gomes</p></motion.div>
                     </div>
                 </section>
             </section>
@@ -82,7 +102,7 @@ function App() {
                         }}
                     >
                         <motion.li className="project-item" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} id="item-1">
-                            <div className="project-item-image"></div>
+                            <div className="project-item-image" id="react-image"></div>
                             <div className="project-item-content">
                                 <p>Burger-React é um template de um website para restaurantes e outros serviços. O template usa tecnologias de frontend (React) e uma conexão com banco de dados através de uma API REST.</p>
                                 <p>Esse projeto mostra um pouco da minha proficiencia em desenvolvimento Web Fullstack</p>
@@ -90,7 +110,7 @@ function App() {
                             </div>
                         </motion.li>
                         <motion.li className="project-item" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                            <div className="project-item-image"></div>
+                            <div className="project-item-image" id="forum-image"></div>
                             <motion.div
                                 className="project-item-content"
                                 ref={projectItemRef}
@@ -100,10 +120,12 @@ function App() {
                                 <p>Stack usada: <b>Java/Spring, React/Vite, PostgreSQL</b></p>
                             </motion.div>
                         </motion.li>
-                        <motion.li className="project-item" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+                        {/* Template de item */}
+                        {/*<motion.li className="project-item" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                             <div className="project-item-image"></div>
                             <div className="project-item-content"></div>
-                        </motion.li>
+                        </motion.li>*/}
+
                     </motion.ul>
                 </motion.div>
             </section>
